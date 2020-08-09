@@ -5,12 +5,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
 import com.asb.presentation.auth.LoginViewModel
-import com.asb.presentation.medcheck.GetPateintDataViewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
     factory { LoginViewModel(get()) }
-    factory { GetPateintDataViewModel(get(), get()) }
 }
 
 fun TextView.afterTextChangedDelayed(afterTextChanged: (String) -> Unit) {

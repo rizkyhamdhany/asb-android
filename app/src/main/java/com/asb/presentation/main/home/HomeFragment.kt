@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.asb.android.R
-import com.asb.presentation.medcheck.GetPateintDataActivity
 import kotlinx.android.synthetic.main.fragment_home.view.perform_test_container
 
 class HomeFragment : Fragment() {
@@ -28,8 +27,8 @@ class HomeFragment : Fragment() {
 //            textView.text = it
 //        })
         root.perform_test_container.setOnClickListener {
-            val i = Intent(context, GetPateintDataActivity::class.java)
-            startActivity(i)
+//            val i = Intent(context, GetPateintDataActivity::class.java)
+//            startActivity(i)
         }
         return root
     }

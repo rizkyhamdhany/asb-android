@@ -2,37 +2,46 @@ package com.asb.presentation.auth
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.asb.android.databinding.ActivityLoginBinding
 import com.asb.core.model.Login
 import com.asb.core.network.Resource
 import com.asb.core.network.Status
-import androidx.databinding.DataBindingUtil
 import com.asb.presentation.main.HomeActivity
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
+import androidx.lifecycle.switchMap
+import com.asb.android.R
+import com.asb.core.model.LoginPostData
+import com.asb.core.repository.LoginRepository
 import com.asb.core.utils.Preferences
+import com.asb.presentation.BaseActivity
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.android.inject
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
+    private var email = ""
+    private var pass = ""
+    private val loginRepo: LoginRepository by inject()
     private val prefModule: Preferences by inject()
-    private val viewModel: LoginViewModel by viewModel()
-    private lateinit var binding: ActivityLoginBinding
+    private var userMutableLiveData = MutableLiveData<LoginPostData>()
+    private var login = userMutableLiveData.switchMap { login ->
+        liveData(Dispatchers.IO) {
+            emit(Resource.loading(null))
+            emit(loginRepo.doLogin(login))
+        }
+    }
 
     private val observer = Observer<Resource<Login>> {
         when (it.status) {
             Status.SUCCESS -> {
                 it.data?.`data`?.let { res ->
-                    prefModule.storeToken(res.accessToken.token)
-                    prefModule.storeExpireToken(res.accessToken.expiresIn)
-                    prefModule.storeRefreshToken(res.accessToken.refreshToken)
-                    prefModule.storeCompany(res.user.company.id)
-                    prefModule.storeCommandCenter(res.user.commandCenter.id)
+                    prefModule.storeToken(res.accessToken)
                 }
-                showSuccess()
+//                showSuccess()
             }
             Status.ERROR -> showError()
             Status.LOADING -> showLoading()
@@ -42,26 +51,44 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (prefModule.getToken().isNullOrBlank()) {
-            binding = DataBindingUtil.setContentView(this, com.asb.android.R.layout.activity_login)
-            binding.viewModel = viewModel
-            viewModel.login.observe(this, observer)
+            setContentView(R.layout.activity_login)
+            login.observe(this, observer)
+            setViewListener()
         } else {
             goToHomeScreen()
         }
 
     }
 
+    private fun setViewListener() {
+        submit_button.setOnClickListener {
+            if (validation())
+                userMutableLiveData.value = LoginPostData(email, pass)
+            else
+                showDialog(BLANK_FORM)
+        }
+
+        register_text.setOnClickListener {
+            val i = Intent(this, RegisterActivity::class.java)
+            startActivity(i)
+        }
+    }
+
+    private fun validation() : Boolean {
+        email = username.text.toString()
+        pass = password.text.toString()
+
+        return email.isNotEmpty() && pass.isNotEmpty()
+    }
+
     private fun showLoading() {
-        binding.viewModel?.isLoading?.set(true)
     }
 
     private fun showError() {
-        binding.viewModel?.isLoading?.set(false)
         showDialog(INVALID_CREDENTIAL)
     }
 
     private fun showSuccess() {
-        binding.viewModel?.isLoading?.set(false)
         goToHomeScreen()
     }
 
@@ -69,19 +96,5 @@ class LoginActivity : AppCompatActivity() {
         val i = Intent(this, HomeActivity::class.java)
         startActivity(i)
         finish()
-    }
-
-    private fun showDialog(msg: String) {
-        AlertDialog.Builder(this)
-            .setTitle("Login")
-            .setMessage(msg)
-            .setNegativeButton(android.R.string.no, null)
-            .setIcon(android.R.drawable.ic_dialog_alert)
-            .show()
-    }
-
-    companion object {
-        private const val INVALID_CREDENTIAL = "Invalid Credential"
-        private const val FAILED_SIGN_IN = "Failed to Sign in !"
     }
 }

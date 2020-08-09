@@ -3,10 +3,12 @@
     package="com.asb.android">
 
     <application
+        android:targetSandboxVersion="1"
         android:name="com.asb.presentation.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
@@ -23,25 +25,9 @@
             android:name="com.asb.presentation.main.HomeActivity"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
-            android:name="com.asb.presentation.medcheck.InputPasienActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name="com.asb.presentation.medcheck.MedcheckActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name="com.asb.presentation.medcheck.GetPateintDataActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name="com.asb.presentation.medcheck.PatientDetailActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name="com.asb.presentation.medcheck.BloodPressureActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name="com.asb.presentation.medcheck.RespiratoryActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name="com.asb.presentation.medcheck.PulseActivity"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name="com.asb.presentation.medcheck.TemperatureActivity"
-            android:theme="@style/AppThemeNoActionBar" />
+            android:name="com.asb.presentation.auth.RegisterActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

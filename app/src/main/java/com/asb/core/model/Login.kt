@@ -2,49 +2,31 @@ package com.asb.core.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Login(
-    val `data`: LoginData
-)
-
-data class LoginData(
-    @SerializedName("access_token")
-    val accessToken: AccessToken,
-    @SerializedName("user")
-    val user: UserLogin
-)
-
-data class AccessToken(
-    val expiresIn: Long,
-    val refreshToken: String,
-    val token: String,
-    val type: String
-)
-
 data class LoginPostData(
-    @SerializedName("username")
+    @SerializedName("email")
     var username: String,
     @SerializedName("password")
     var password: String
 )
 
-data class RefreshTokenPostData(
-    @SerializedName("refresh_token")
-    var refreshToken: String?
+data class Login(
+    val `data`: LoginData
 )
 
-data class UserLogin(
-    @SerializedName("command_center")
-    var commandCenter: CommandCenter,
-    @SerializedName("company")
-    var company: Company
+data class Status(
+    @SerializedName("is_medhis_submitted")
+    var isMedhisSubmitted: Int,
+    @SerializedName("is_medcheck_submitted")
+    var isMedcheckSubmitted: Int,
+    @SerializedName("is_on_program")
+    var isOnProgram: Int,
+    @SerializedName("is_patient")
+    var isPatient: Int
 )
 
-data class CommandCenter(
-    @SerializedName("id")
-    var id: Int
-)
-
-data class Company(
-    @SerializedName("id")
-    var id: Int
+data class LoginData(
+    @SerializedName("token")
+    val accessToken: String,
+    @SerializedName("status")
+    val status: Status
 )

@@ -9,14 +9,14 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.asb.android"
+        applicationId "com.asbnew.android"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "API_KEY", "\"574df226ee514d39a495f1a507124a5c\"")
-        buildConfigField "String", "API_URL", "\"http://54.169.182.171/api/v1/\""
+        buildConfigField "String", "API_URL", "\"http://sehatbugarselalu.com/\""
         dataBinding {
             enabled = true
         }
