@@ -17,6 +17,7 @@ open class BaseActivity : AppCompatActivity() {
     companion object {
         const val INVALID_CREDENTIAL = "Invalid Credential"
         const val BLANK_FORM = "Please fill all field !"
+        const val ERROR_MSG = "Something went wrong !"
         const val FAILED_SIGN_IN = "Failed to Sign in !"
     }
 }

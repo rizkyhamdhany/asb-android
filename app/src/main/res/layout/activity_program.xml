@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:tag="layout/activity_program_0" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:background="?attr/colorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?attr/actionBarSize" app:titleTextColor="@android:color/white"/>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/toolbar">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="300dp" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_centerHorizontal="true">
+                <TextView android:textSize="28sp" android:textColor="@color/white" android:layout_width="300dp" android:layout_height="wrap_content" android:layout_marginBottom="40dp" android:text="Program Pola Sehat"/>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Tanggal">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/tanggal" android:tag="binding_1" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Sikap">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/sikap" android:tag="binding_2" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Makan Pagi">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/makan_pagi" android:tag="binding_3" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Makan Siang">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/makan_siang" android:tag="binding_4" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Makan Sore">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/makan_sore" android:tag="binding_5" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Cemilan">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/cemilan" android:tag="binding_6" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Puasa">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/puasa" android:tag="binding_7" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Minum">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/minum1" android:tag="binding_8" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Minum">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/minum2" android:tag="binding_9" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Jalan Kaki">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/jalan_kaki" android:tag="binding_10" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Olahraga">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/olahraga" android:tag="binding_11" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Tidur Siang">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/tidur_siang" android:tag="binding_12" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/input_pasien_btn" android:tag="binding_13" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Submit"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

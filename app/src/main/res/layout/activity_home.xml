@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_home"
-        app:menu="@menu/activity_home_drawer" />
-
-    <include
-        layout="@layout/app_bar_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</androidx.drawerlayout.widget.DrawerLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:tag="layout/activity_home_0" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:paddingLeft="80dp" android:paddingRight="80dp" android:layout_width="300dp" android:layout_height="200dp" android:layout_marginBottom="10dp" android:src="@drawable/ic_patient"/>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@+id/program" android:background="@drawable/border_white" android:padding="20dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp">
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/ic_diet" android:tint="@color/white"/>
+                <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Program"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@+id/medcheck" android:background="@drawable/border_white" android:padding="20dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp">
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/ic_stethoscope" android:tint="@color/white"/>
+                <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Medical Checkup"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@+id/medhis" android:background="@drawable/border_white" android:padding="20dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp">
+                <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/ic_veterinary" android:tint="@color/white"/>
+                <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Medical History"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@+id/logout" android:background="@drawable/border_white" android:padding="20dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5dp">
+                <ImageView android:layout_width="108dp" android:layout_height="100dp" android:src="@drawable/ic_logout" android:tint="@color/white"/>
+                <TextView android:textColor="@color/white" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Logout"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

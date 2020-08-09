@@ -12,12 +12,24 @@ val prefModule = module {
 class Preferences(context: Context) {
     private val preferences: SharedPreferences = context.getSharedPreferences("prefs", Context.MODE_PRIVATE)
 
+    fun clear() {
+        preferences.edit().clear().apply()
+    }
+
     fun storeToken(content: String){
         preferences.edit().putString(KEY_TOKEN, content).apply()
     }
 
     fun getToken(): String? {
         return preferences.getString(KEY_TOKEN, "")
+    }
+
+    fun storeEmail(content: String){
+        preferences.edit().putString(KEY_EMAIL, content).apply()
+    }
+
+    fun getEmail(): String? {
+        return preferences.getString(KEY_EMAIL, "")
     }
 
     fun storeCompany(content: Int){
@@ -183,6 +195,7 @@ class Preferences(context: Context) {
 
     companion object {
         private const val KEY_TOKEN = "token"
+        private const val KEY_EMAIL = "email"
         private const val KEY_COMPANY = "company"
         private const val KEY_COMMAND_CENTER = "command_center"
         private const val KEY_REFRESH_TOKEN = "refreshToken"

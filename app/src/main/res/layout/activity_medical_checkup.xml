@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:tag="layout/activity_medical_checkup_0" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:background="?attr/colorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?attr/actionBarSize" app:titleTextColor="@android:color/white"/>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/toolbar">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="300dp" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_centerHorizontal="true">
+                <TextView android:textSize="28sp" android:textColor="@color/white" android:layout_width="300dp" android:layout_height="wrap_content" android:layout_marginBottom="40dp" android:text="Medical Checkup"/>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Berat Badan">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/beratbadan" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Tinggi Badan">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/tinggibadan" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Lingkar Perut">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/lingkarperut" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Sistolik">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/sistolik" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Diastolik">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/diastolik" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="GDS">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/gds" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Kolesterol">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/kolesterol" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Asam Urat">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/asamurat" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Harapan">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/harapan" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/input_pasien_btn" android:tag="binding_1" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Submit"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

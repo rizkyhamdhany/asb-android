@@ -28,6 +28,23 @@
             android:name="com.asb.presentation.auth.RegisterActivity"
             android:theme="@style/AppThemeNoActionBar">
         </activity>
+
+        <activity
+            android:name="com.asb.presentation.auth.CreateProfileActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
+        <activity
+            android:name="com.asb.presentation.auth.MedhisActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
+        <activity
+            android:name="com.asb.presentation.auth.MedcekActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
+        <activity
+            android:name="com.asb.presentation.auth.ProgramActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

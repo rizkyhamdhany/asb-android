@@ -2,9 +2,17 @@ package com.asb.core.network
 
 import com.asb.core.model.Login
 import com.asb.core.model.LoginPostData
+import com.asb.core.model.MedcekPostData
+import com.asb.core.model.MedcekRespond
 import com.asb.core.model.Medcheck
 import com.asb.core.model.MedcheckData
+import com.asb.core.model.MedhisPostData
+import com.asb.core.model.MedhisRespond
 import com.asb.core.model.Patient
+import com.asb.core.model.ProfilePostData
+import com.asb.core.model.ProfileRespond
+import com.asb.core.model.ProgramMeRespond
+import com.asb.core.model.ProgramPostData
 import com.asb.core.model.RefreshTokenData
 import com.asb.core.model.RegisterPostData
 import com.asb.core.model.RegisterRespond
@@ -23,6 +31,21 @@ interface PredictyaApi {
 
     @POST("auth/refresh")
     suspend fun refreshToken(@Body data: RefreshTokenData): Login
+
+    @POST("patient/update")
+    suspend fun profile(@Body data: ProfilePostData): ProfileRespond
+
+    @POST("medhis/update")
+    suspend fun medhis(@Body data: MedhisPostData): MedhisRespond
+
+    @POST("medcheck/insert")
+    suspend fun medcek(@Body data: MedcekPostData): MedcekRespond
+
+    @POST("program/log")
+    suspend fun programLog(@Body data: ProgramPostData): MedcekRespond
+
+    @GET("program/me")
+    suspend fun myProgram(): ProgramMeRespond
 
     @GET("command-center/{command_center_id}/companies/{company_id}/patients/{patient_id}")
     suspend fun getPatient(

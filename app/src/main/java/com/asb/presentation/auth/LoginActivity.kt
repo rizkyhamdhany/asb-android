@@ -40,8 +40,13 @@ class LoginActivity : BaseActivity() {
             Status.SUCCESS -> {
                 it.data?.`data`?.let { res ->
                     prefModule.storeToken(res.accessToken)
+                    prefModule.storeEmail(email)
+
+                    if (res.status.isPatient == 0 ) goCreateProfile()
+                    else if (res.status.isMedhisSubmitted == 0 ) gotMedhis()
+                    else if (res.status.isMedcheckSubmitted == 0 ) gotMedcek()
+                    else goToHomeScreen()
                 }
-//                showSuccess()
             }
             Status.ERROR -> showError()
             Status.LOADING -> showLoading()
@@ -88,8 +93,22 @@ class LoginActivity : BaseActivity() {
         showDialog(INVALID_CREDENTIAL)
     }
 
-    private fun showSuccess() {
-        goToHomeScreen()
+    private fun goCreateProfile() {
+        val i = Intent(this, CreateProfileActivity::class.java)
+        startActivity(i)
+        finish()
+    }
+
+    private fun gotMedhis() {
+        val i = Intent(this, MedhisActivity::class.java)
+        startActivity(i)
+        finish()
+    }
+
+    private fun gotMedcek() {
+        val i = Intent(this, MedcekActivity::class.java)
+        startActivity(i)
+        finish()
     }
 
     private fun goToHomeScreen() {
