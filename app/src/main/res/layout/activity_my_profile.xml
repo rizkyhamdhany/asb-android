@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:tag="layout/activity_create_profile_0" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:background="?attr/colorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?attr/actionBarSize" app:titleTextColor="@android:color/white"/>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/toolbar">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="300dp" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_centerHorizontal="true">
+                <TextView android:textSize="28sp" android:textColor="@color/white" android:layout_width="300dp" android:layout_height="wrap_content" android:layout_marginBottom="40dp" android:text="My Profile"/>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Nama">
+                    <com.google.android.material.textfield.TextInputEditText android:text="Rizky Hamdhany" android:id="@+id/name" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Tempat Lahir">
+                    <com.google.android.material.textfield.TextInputEditText android:text="Bandung" android:id="@+id/tempat_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Tanggal Lahir">
+                    <com.google.android.material.textfield.TextInputEditText android:text="26-06-1991" android:id="@+id/tanggallahir_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="none"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <RadioGroup android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:checkedButton="@+id/first">
+                    <RadioButton android:textColor="@color/white" android:id="@+id/first" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Laki Laki" android:buttonTint="@color/white"/>
+                </RadioGroup>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Agama">
+                    <com.google.android.material.textfield.TextInputEditText android:text="Islam" android:id="@+id/agama_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Suku">
+                    <com.google.android.material.textfield.TextInputEditText android:text="Sunda"  android:id="@+id/suku_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Alamat">
+                    <com.google.android.material.textfield.TextInputEditText android:text="Jln Antapani 6 no 8"  android:id="@+id/alamat_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="No HP">
+                    <com.google.android.material.textfield.TextInputEditText android:text="08112032606"  android:id="@+id/nohp_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="textEmailAddress"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Email">
+                    <com.google.android.material.textfield.TextInputEditText android:text="hamdhanywijaya@gmail.com"  android:id="@+id/email_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="none"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

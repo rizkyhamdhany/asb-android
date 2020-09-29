@@ -67,6 +67,7 @@ class LoginActivity : BaseActivity() {
 
     private fun setViewListener() {
         submit_button.setOnClickListener {
+            throw RuntimeException("This is a crash")
             if (validation())
                 userMutableLiveData.value = LoginPostData(email, pass)
             else

@@ -1,6 +1,7 @@
 package com.asb.presentation.main
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -28,6 +29,7 @@ class HomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        throw RuntimeException("This is a crash")
         program.setOnClickListener {
             checkProgram()
         }
@@ -38,6 +40,12 @@ class HomeActivity : BaseActivity() {
         medhis.setOnClickListener {
             startActivity(Intent(this, MedhisActivity::class.java))
             finish()
+        }
+        call_doctor.setOnClickListener {
+            val uri = Uri.parse("smsto:0818438043")
+            val i = Intent(Intent.ACTION_SENDTO, uri)
+            i.setPackage("com.whatsapp")
+            startActivity(Intent.createChooser(i, ""))
         }
         logout.setOnClickListener {
             prefHelper.clear()
