@@ -1,11 +1,13 @@
 package com.asb.core.repository
 
+import com.asb.core.model.ChangePasswordPostData
 import com.asb.core.model.Login
 import com.asb.core.model.LoginPostData
 import com.asb.core.model.MedcekPostData
 import com.asb.core.model.MedcekRespond
 import com.asb.core.model.MedhisPostData
 import com.asb.core.model.MedhisRespond
+import com.asb.core.model.ProfileGetRespond
 import com.asb.core.model.ProfilePostData
 import com.asb.core.model.ProfileRespond
 import com.asb.core.model.ProgramMeRespond
@@ -39,6 +41,15 @@ open class LoginRepository(
         }
     }
 
+    suspend fun changePassword(data: ChangePasswordPostData): Resource<ProfileRespond> {
+        return try {
+            val response = predictyaApi.changePassword(data)
+            responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
     suspend fun doRegister(postData: RegisterPostData): Resource<RegisterRespond> {
         return try {
             val response = predictyaApi.register(postData)
@@ -51,6 +62,24 @@ open class LoginRepository(
     suspend fun profileSubmit(postData: ProfilePostData): Resource<ProfileRespond> {
         return try {
             val response = predictyaApi.profile(postData)
+            responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun profileEditSubmit(postData: ProfilePostData): Resource<ProfileRespond> {
+        return try {
+            val response = predictyaApi.profileEdit(postData)
+            responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getProfile(): Resource<ProfileGetRespond> {
+        return try {
+            val response = predictyaApi.profileGet()
             responseHandler.handleSuccess(response)
         } catch (e: Exception) {
             responseHandler.handleException(e)

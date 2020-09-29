@@ -25,6 +25,17 @@ data class ProfileRespond(
     val `data`: ProfileData
 )
 
+data class ProfileGetRespond(
+    val `data`: ProfilePatient
+)
+
+data class ProfilePatient(
+    @SerializedName("patient")
+    val patient: ProfilePostData
+)
+
+
+
 data class ProfileData(
     @SerializedName("message")
     val message: String

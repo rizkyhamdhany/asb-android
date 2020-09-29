@@ -12,4 +12,5 @@
     <string name="menu_setup">Setup</string>
     <string name="menu_contact">Contact</string>
     <string name="menu_logout">Logout</string>
+    <string name="setting">Setting</string>
 </resources>

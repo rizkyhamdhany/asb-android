@@ -13,6 +13,7 @@ import com.asb.core.network.Status
 import com.asb.core.repository.LoginRepository
 import com.asb.core.utils.Preferences
 import com.asb.presentation.BaseActivity
+import com.asb.presentation.auth.CreateProfileActivity
 import com.asb.presentation.auth.LoginActivity
 import com.asb.presentation.auth.MedcekActivity
 import com.asb.presentation.auth.MedhisActivity
@@ -29,17 +30,18 @@ class HomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        throw RuntimeException("This is a crash")
         program.setOnClickListener {
             checkProgram()
         }
         medcheck.setOnClickListener {
-            startActivity(Intent(this, MedcekActivity::class.java))
-            finish()
+            val i = Intent(this, MedcekActivity::class.java)
+            i.putExtra("isFromHome", true)
+            startActivity(i)
         }
         medhis.setOnClickListener {
-            startActivity(Intent(this, MedhisActivity::class.java))
-            finish()
+            val i = Intent(this, MedhisActivity::class.java)
+            i.putExtra("isFromHome", true)
+            startActivity(i)
         }
         call_doctor.setOnClickListener {
             val uri = Uri.parse("smsto:0818438043")
@@ -50,7 +52,11 @@ class HomeActivity : BaseActivity() {
         logout.setOnClickListener {
             prefHelper.clear()
             startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+        }
+        account.setOnClickListener {
+            val i = Intent(this, CreateProfileActivity::class.java)
+            i.putExtra("isFromHome", true)
+            startActivity(i)
         }
     }
 

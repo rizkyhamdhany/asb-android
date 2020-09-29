@@ -1,5 +1,6 @@
 package com.asb.core.network
 
+import com.asb.core.model.ChangePasswordPostData
 import com.asb.core.model.Login
 import com.asb.core.model.LoginPostData
 import com.asb.core.model.MedcekPostData
@@ -9,6 +10,7 @@ import com.asb.core.model.MedcheckData
 import com.asb.core.model.MedhisPostData
 import com.asb.core.model.MedhisRespond
 import com.asb.core.model.Patient
+import com.asb.core.model.ProfileGetRespond
 import com.asb.core.model.ProfilePostData
 import com.asb.core.model.ProfileRespond
 import com.asb.core.model.ProgramMeRespond
@@ -18,6 +20,7 @@ import com.asb.core.model.RegisterPostData
 import com.asb.core.model.RegisterRespond
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -25,6 +28,9 @@ interface PredictyaApi {
 
     @POST("auth/login")
     suspend fun login(@Body loginPostData: LoginPostData): Login
+
+    @POST("password/change")
+    suspend fun changePassword(@Body changePasswordPostData: ChangePasswordPostData): ProfileRespond
 
     @POST("auth/register")
     suspend fun register(@Body postData: RegisterPostData): RegisterRespond
@@ -34,6 +40,12 @@ interface PredictyaApi {
 
     @POST("patient/update")
     suspend fun profile(@Body data: ProfilePostData): ProfileRespond
+
+    @PATCH("patient/update")
+    suspend fun profileEdit(@Body data: ProfilePostData): ProfileRespond
+
+    @GET("patient/get")
+    suspend fun profileGet(): ProfileGetRespond
 
     @POST("medhis/update")
     suspend fun medhis(@Body data: MedhisPostData): MedhisRespond

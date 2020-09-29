@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:tag="layout/activity_create_profile_0" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="match_parent">
-    <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:background="?attr/colorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?attr/actionBarSize" app:titleTextColor="@android:color/white"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="?attr/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white"
+        />
     <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/toolbar">
         <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
             <LinearLayout android:orientation="vertical" android:layout_width="300dp" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_centerHorizontal="true">
@@ -27,8 +34,18 @@
                 <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="No HP">
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/nohp_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="textEmailAddress"/>
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout android:theme="@style/TextInputLayoutAppearance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:hint="Email">
-                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/email_ET" android:layout_width="match_parent" android:layout_height="match_parent" android:inputType="none"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:theme="@style/TextInputLayoutAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Email">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_ET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:editable="false"
+                        android:inputType="none"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.button.MaterialButton android:id="@+id/input_pasien_btn" android:tag="binding_1" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Submit"/>/&gt;
             </LinearLayout>

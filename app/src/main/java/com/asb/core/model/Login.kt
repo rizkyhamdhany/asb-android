@@ -30,3 +30,8 @@ data class LoginData(
     @SerializedName("status")
     val status: Status
 )
+
+data class ChangePasswordPostData(
+    @SerializedName("password")
+    var password: String
+)

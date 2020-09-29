@@ -21,9 +21,15 @@ import org.koin.android.ext.android.inject
 
 class MedcekActivity : BaseActivity() {
 
+    private var isFromHome = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        isFromHome = intent.getBooleanExtra("isFromHome", false)
         setContentView(R.layout.activity_medical_checkup)
+        if (isFromHome) {
+            setToolbar(toolbar)
+        }
         setViewListener()
         process.observe(this, observer)
     }
@@ -40,8 +46,10 @@ class MedcekActivity : BaseActivity() {
     private val observer = Observer<Resource<MedcekRespond>> {
         when (it.status) {
             Status.SUCCESS -> {
-                val i = Intent(this, HomeActivity::class.java)
-                startActivity(i)
+                if (!isFromHome) {
+                    val i = Intent(this, HomeActivity::class.java)
+                    startActivity(i)
+                }
                 finish()
             }
             Status.ERROR -> {

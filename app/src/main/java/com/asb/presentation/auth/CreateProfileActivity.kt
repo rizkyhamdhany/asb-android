@@ -4,6 +4,9 @@ import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.liveData
@@ -16,15 +19,29 @@ import com.asb.core.network.Status
 import com.asb.core.repository.LoginRepository
 import com.asb.core.utils.Preferences
 import com.asb.presentation.BaseActivity
-import com.google.gson.annotations.SerializedName
-import kotlinx.android.synthetic.main.activity_create_profile.*
+import kotlinx.android.synthetic.main.activity_create_profile.agama_ET
+import kotlinx.android.synthetic.main.activity_create_profile.alamat_ET
+import kotlinx.android.synthetic.main.activity_create_profile.email_ET
+import kotlinx.android.synthetic.main.activity_create_profile.first
+import kotlinx.android.synthetic.main.activity_create_profile.input_pasien_btn
+import kotlinx.android.synthetic.main.activity_create_profile.nohp_ET
+import kotlinx.android.synthetic.main.activity_create_profile.second
+import kotlinx.android.synthetic.main.activity_create_profile.suku_ET
+import kotlinx.android.synthetic.main.activity_create_profile.tanggallahir_ET
+import kotlinx.android.synthetic.main.activity_create_profile.tempat_ET
+import kotlinx.android.synthetic.main.activity_medical_history.toolbar
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 
 class CreateProfileActivity : BaseActivity() {
+
+    private var isFromHome = false
 
     var birthPlace = ""
     var birthDate = ""
@@ -42,15 +59,23 @@ class CreateProfileActivity : BaseActivity() {
     private var process = postData.switchMap { data ->
         liveData(Dispatchers.IO) {
             emit(Resource.loading(null))
-            emit(authRepo.profileSubmit(data))
+            if (!isFromHome) {
+                emit(authRepo.profileSubmit(data))
+            } else {
+                emit(authRepo.profileEditSubmit(data))
+            }
+
         }
     }
 
     private val observer = Observer<Resource<ProfileRespond>> {
         when (it.status) {
             Status.SUCCESS -> {
-                val i = Intent(this, MedhisActivity::class.java)
-                startActivity(i)
+                Toast.makeText(this, "Profile has beed updated !", Toast.LENGTH_SHORT).show()
+                if (!isFromHome) {
+                    val i = Intent(this, MedhisActivity::class.java)
+                    startActivity(i)
+                }
                 finish()
             }
             Status.ERROR -> {
@@ -62,9 +87,56 @@ class CreateProfileActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_profile)
+        isFromHome = intent.getBooleanExtra("isFromHome", false)
+        if (isFromHome) {
+            setToolbar(toolbar)
+        }
         email_ET.setText(prefModule.getEmail())
         setViewListener()
+        getProfile()
         process.observe(this, observer)
+    }
+
+    private fun getProfile() {
+        GlobalScope.launch {
+            val result = authRepo.getProfile()
+
+            if (result.status == Status.SUCCESS) {
+                result.data?.data?.patient?.also { patient ->
+                    runOnUiThread {
+                        tempat_ET.setText(patient.tempat_lahir)
+                        tanggallahir_ET.setText(patient.tanggal_lahir)
+                        if (patient.jenis_kelamin == "L")  {
+                            first.isChecked = true
+                        } else {
+                            second.isChecked = true
+                        }
+                        agama_ET.setText(patient.agama)
+                        suku_ET.setText(patient.suku)
+                        alamat_ET.setText(patient.alamat)
+                        nohp_ET.setText(patient.no_hp)
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.profile, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.setting -> {
+                val i = Intent(this, ChangePasswordActivity::class.java)
+                startActivity(i)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     fun setViewListener() {

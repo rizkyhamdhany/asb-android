@@ -7,17 +7,25 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.switchMap
 import com.asb.android.R
 import com.asb.core.model.MedcekRespond
-import com.asb.core.model.MedhisPostData
-import com.asb.core.model.MedhisRespond
 import com.asb.core.model.ProgramPostData
 import com.asb.core.network.Resource
 import com.asb.core.network.Status
 import com.asb.core.repository.LoginRepository
 import com.asb.presentation.BaseActivity
-import com.google.gson.annotations.SerializedName
-import kotlinx.android.synthetic.main.activity_medical_history.*
-import kotlinx.android.synthetic.main.activity_medical_history.input_pasien_btn
-import kotlinx.android.synthetic.main.activity_program.*
+import kotlinx.android.synthetic.main.activity_program.cemilan
+import kotlinx.android.synthetic.main.activity_program.input_pasien_btn
+import kotlinx.android.synthetic.main.activity_program.jalan_kaki
+import kotlinx.android.synthetic.main.activity_program.makan_pagi
+import kotlinx.android.synthetic.main.activity_program.makan_siang
+import kotlinx.android.synthetic.main.activity_program.makan_sore
+import kotlinx.android.synthetic.main.activity_program.minum1
+import kotlinx.android.synthetic.main.activity_program.minum2
+import kotlinx.android.synthetic.main.activity_program.olahraga
+import kotlinx.android.synthetic.main.activity_program.puasa
+import kotlinx.android.synthetic.main.activity_program.sikap
+import kotlinx.android.synthetic.main.activity_program.tanggal
+import kotlinx.android.synthetic.main.activity_program.tidur_siang
+import kotlinx.android.synthetic.main.activity_program.toolbar
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.android.inject
 
@@ -30,6 +38,7 @@ class ProgramActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         programId = intent.getIntExtra("id", 0)
         setContentView(R.layout.activity_program)
+        setToolbar(toolbar)
         setViewListener()
         process.observe(this, observer)
     }
