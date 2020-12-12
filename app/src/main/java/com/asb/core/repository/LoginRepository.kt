@@ -7,6 +7,8 @@ import com.asb.core.model.MedcekPostData
 import com.asb.core.model.MedcekRespond
 import com.asb.core.model.MedhisPostData
 import com.asb.core.model.MedhisRespond
+import com.asb.core.model.MyMedcekRespond
+import com.asb.core.model.MyMedhisRespond
 import com.asb.core.model.ProfileGetRespond
 import com.asb.core.model.ProfilePostData
 import com.asb.core.model.ProfileRespond
@@ -89,6 +91,24 @@ open class LoginRepository(
     suspend fun medhisSubmit(postData: MedhisPostData): Resource<MedhisRespond> {
         return try {
             val response = predictyaApi.medhis(postData)
+            responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getMyMedhis(): Resource<MyMedhisRespond> {
+        return try {
+            val response = predictyaApi.myMedhis()
+            responseHandler.handleSuccess(response)
+        } catch (e: Exception) {
+            responseHandler.handleException(e)
+        }
+    }
+
+    suspend fun getMyMedcheck(): Resource<MyMedcekRespond> {
+        return try {
+            val response = predictyaApi.myMedcheck()
             responseHandler.handleSuccess(response)
         } catch (e: Exception) {
             responseHandler.handleException(e)

@@ -9,6 +9,8 @@ import com.asb.core.model.Medcheck
 import com.asb.core.model.MedcheckData
 import com.asb.core.model.MedhisPostData
 import com.asb.core.model.MedhisRespond
+import com.asb.core.model.MyMedcekRespond
+import com.asb.core.model.MyMedhisRespond
 import com.asb.core.model.Patient
 import com.asb.core.model.ProfileGetRespond
 import com.asb.core.model.ProfilePostData
@@ -50,8 +52,14 @@ interface PredictyaApi {
     @POST("medhis/update")
     suspend fun medhis(@Body data: MedhisPostData): MedhisRespond
 
+    @GET("medhis")
+    suspend fun myMedhis(): MyMedhisRespond
+
     @POST("medcheck/insert")
     suspend fun medcek(@Body data: MedcekPostData): MedcekRespond
+
+    @GET("medcheck")
+    suspend fun myMedcheck(): MyMedcekRespond
 
     @POST("program/log")
     suspend fun programLog(@Body data: ProgramPostData): MedcekRespond

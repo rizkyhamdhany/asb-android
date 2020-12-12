@@ -38,6 +38,14 @@
             android:theme="@style/AppThemeNoActionBar">
         </activity>
         <activity
+            android:name="com.asb.presentation.auth.MyMedhisActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
+        <activity
+            android:name="com.asb.presentation.auth.medcheck.MyMedcheckActivity"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
+        <activity
             android:name="com.asb.presentation.auth.MedcekActivity"
             android:theme="@style/AppThemeNoActionBar">
         </activity>

@@ -17,7 +17,9 @@ import com.asb.presentation.auth.CreateProfileActivity
 import com.asb.presentation.auth.LoginActivity
 import com.asb.presentation.auth.MedcekActivity
 import com.asb.presentation.auth.MedhisActivity
+import com.asb.presentation.auth.MyMedhisActivity
 import com.asb.presentation.auth.ProgramActivity
+import com.asb.presentation.auth.medcheck.MyMedcheckActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.android.inject
@@ -34,12 +36,12 @@ class HomeActivity : BaseActivity() {
             checkProgram()
         }
         medcheck.setOnClickListener {
-            val i = Intent(this, MedcekActivity::class.java)
+            val i = Intent(this, MyMedcheckActivity::class.java)
             i.putExtra("isFromHome", true)
             startActivity(i)
         }
         medhis.setOnClickListener {
-            val i = Intent(this, MedhisActivity::class.java)
+            val i = Intent(this, MyMedhisActivity::class.java)
             i.putExtra("isFromHome", true)
             startActivity(i)
         }
